@@ -1,25 +1,14 @@
 <?php
-// Set header to return JSON
-header('Content-Type: application/json');
-
-// Get name from POST
-$name = isset($_POST['name']) ? trim($_POST['name']) : '';
-
-// Validate name
-if (empty($name)) {
-    echo json_encode([
-        'success' => false,
-        'message' => 'Name cannot be empty.'
-    ]);
-    exit;
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if (!empty($_POST['name'])) {
+        $name = htmlspecialchars(trim($_POST['name']));
+        echo "Hello, $name!";
+    } else {
+        echo "Name cannot be empty.";
+    }
+} else {
+    echo "Invalid request.";
 }
+?>
 
-// Sanitize name (basic)
-$safeName = htmlspecialchars($name, ENT_QUOTES, 'UTF-8');
-
-// Return greeting
-echo json_encode([
-    'success' => true,
-    'message' => "Hello, $safeName!"
-]);
    
