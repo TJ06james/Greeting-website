@@ -1,23 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Greeting Page</title>
-  <script defer src="script.js"></script>
-  <style>
-    body { font-family: Arial, sans-serif; margin: 2em; }
-    #greeting { margin-top: 1em; font-weight: bold; }
-    #error { color: red; }
-  </style>
+    <meta charset="UTF-8">
+    <title>Greeting Page</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        #greeting { margin-top: 20px; font-weight: bold; color: green; }
+        #error { margin-top: 10px; color: red; }
+    </style>
 </head>
 <body>
-  <h1>Welcome!</h1>
-  <form id="greetingForm">
-    <label for="name">Enter your name:</label>
-    <input type="text" id="name" name="name" />
-    <button type="submit">Submit</button>
-  </form>
-  <div id="error"></div>
-  <div id="greeting"></div>
+    <h1>Welcome!</h1>
+    <form id="nameForm">
+        <label for="name">Enter your name:</label>
+        <input type="text" id="name" name="name" required>
+        <button type="submit">Submit</button>
+    </form>
+    
+    <div id="error"></div>
+    <div id="greeting"></div>
+
+    <script src="script.js"></script>
 </body>
 </html>
